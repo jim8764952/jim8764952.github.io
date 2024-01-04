@@ -200,7 +200,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-01-04 13:31:27 / Modified: 13:39:30" itemprop="dateCreated datePublished" datetime="2024-01-04T13:31:27+08:00">2024-01-04</time>
+      <time title="Created: 2024-01-04 13:31:27 / Modified: 15:15:26" itemprop="dateCreated datePublished" datetime="2024-01-04T13:31:27+08:00">2024-01-04</time>
     </span>
 
   
@@ -213,12 +213,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>蒐集完網路上的資料後，自己簡單的把流程整理下來</p>
-<p>我這邊以下載<a target="_blank" rel="noopener" href="https://tisvcloud.freeway.gov.tw/">高速公路資料庫</a>的車輛偵測器作為範例。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_vd_xml</span>(<span class="params">hh,mm</span>):</span><br><span class="line">    filename = <span class="string">f&quot;VDLive_<span class="subst">&#123;hh:02d&#125;</span><span class="subst">&#123;mm:02d&#125;</span>&quot;</span></span><br><span class="line">    url = <span class="string">&quot;https://tisvcloud.freeway.gov.tw/history/motc20/VD/20231121/&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#Download f.xml.gz</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;tmp/&quot;</span>+filename+<span class="string">&quot;.xml.gz&quot;</span>, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        res = requests.get(<span class="string">f&quot;<span class="subst">&#123;url&#125;</span><span class="subst">&#123;filename&#125;</span>.xml.gz&quot;</span>)</span><br><span class="line">        f.write(res.content)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Read f.xml.gz and save to xml</span></span><br><span class="line">    <span class="keyword">with</span> gzip.<span class="built_in">open</span>(<span class="string">&quot;tmp/&quot;</span> + filename + <span class="string">&quot;.xml.gz&quot;</span>, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        file_content = f.read()</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;tmp/&quot;</span> + filename + <span class="string">&quot;.xml&quot;</span>,<span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> x:</span><br><span class="line">            x.write(file_content)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Read f.xml and save to csv</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;tmp/&quot;</span> + filename + <span class="string">&quot;.xml&quot;</span>,<span class="string">&quot;rb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        file_content = f.read().decode(<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">        <span class="comment"># print(file_content)</span></span><br><span class="line">        <span class="keyword">return</span> file_content</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>這邊呢我把它包裝成函式要幾點幾分的資料在傳入即可，回傳的就是xml的資料再看要使用甚麼Praser。</p>
-<p>到目前為止我覺得這個作法會多出解壓縮後的檔案量一多就很佔空間，後續會在把程式碼簡化。也有想過一次全部下載完再一次全部讀取。</p>
-
+          <p>介紹如何解壓縮及讀取 XML.GZ 檔。XML.GZ 檔是一種將 XML 檔案壓縮後的檔案格式。解壓縮 XML.GZ 檔後，就可以取得原始的 XML 檔案。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/uncategorized/20240104/2256883210/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -367,7 +370,7 @@
 
 
 
-<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"jim8764952/jim8764952.github.io","issue_term":"title","theme":"github-dark","crossorigin":"anonymous"}</script>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"jim8764952/jim8764952.github.io","issue_term":"pathname","theme":"github-dark","crossorigin":"anonymous"}</script>
 <script src="/js/third-party/comments/utterances.js"></script>
 
 </body>
