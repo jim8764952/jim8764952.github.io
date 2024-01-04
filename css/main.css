@@ -2233,9 +2233,6 @@ ul.breadcrumb li:last-child {
     color: #eee;
   }
 }
-.utterances {
-  max-width: unset;
-}
 .use-motion .animated {
   animation-fill-mode: none;
   visibility: inherit;
@@ -2495,4 +2492,8 @@ header.header {
   .pagination {
     margin-bottom: 10px;
   }
+}
+.giscus {
+  max-width: unset;
+  box-sizing: border-box;
 }
