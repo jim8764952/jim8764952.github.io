@@ -20,18 +20,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="giscus 介紹我在安裝giscus前已經有試過utterances好一陣子，但都找不到問題點，想說網站剛起步就直接嘗試其他留言插件試試，不試還好一試就成功。  相較於utterances使用GitHub Issue來作為存放留言的地方，giscus是使用GitHub Discussions。作者提到是受utterances啟發而開發的，相關步驟跟utterances極為類似，那我們就往下看怎麼">
+    <meta name="description" content="這篇文章將介紹如何在 Hexo blog中安裝 Giscus 評論系統。Giscus 是一個開源的、基於 GitHub 的評論系統，具有強大的功能和靈活的配置。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo加入留言功能吧! giscus安裝教學 Next主題">
 <meta property="og:url" content="http://example.com/uncategorized/20240104/2073655158/index.html">
 <meta property="og:site_name" content="Jim Wang 的學習筆記">
-<meta property="og:description" content="giscus 介紹我在安裝giscus前已經有試過utterances好一陣子，但都找不到問題點，想說網站剛起步就直接嘗試其他留言插件試試，不試還好一試就成功。  相較於utterances使用GitHub Issue來作為存放留言的地方，giscus是使用GitHub Discussions。作者提到是受utterances啟發而開發的，相關步驟跟utterances極為類似，那我們就往下看怎麼">
+<meta property="og:description" content="這篇文章將介紹如何在 Hexo blog中安裝 Giscus 評論系統。Giscus 是一個開源的、基於 GitHub 的評論系統，具有強大的功能和靈活的配置。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/my-blog-14004.appspot.com/o/giscus.png?alt=media&token=c2901b43-7a1c-4e37-acb2-7bd3afdb08f9">
 <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/my-blog-14004.appspot.com/o/%E9%96%8B%E5%95%9Fdis.png?alt=media&token=8ed8498b-45d9-46d2-a39a-48c3a718f423">
 <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/my-blog-14004.appspot.com/o/giscus-script.png?alt=media&token=2208a9cb-e176-45ca-801e-79fc6d9e2a57">
 <meta property="article:published_time" content="2024-01-04T13:56:21.000Z">
-<meta property="article:modified_time" content="2024-01-05T05:36:36.853Z">
+<meta property="article:modified_time" content="2024-01-05T05:40:36.579Z">
 <meta property="article:author" content="Jim Wang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/my-blog-14004.appspot.com/o/giscus.png?alt=media&token=c2901b43-7a1c-4e37-acb2-7bd3afdb08f9">
@@ -194,7 +194,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="Hexo加入留言功能吧! giscus安裝教學 Next主題 | Jim Wang 的學習筆記">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="這篇文章將介紹如何在 Hexo blog中安裝 Giscus 評論系統。Giscus 是一個開源的、基於 GitHub 的評論系統，具有強大的功能和靈活的配置。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -216,12 +216,13 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-01-05 13:36:36" itemprop="dateModified" datetime="2024-01-05T13:36:36+08:00">2024-01-05</time>
+      <time title="Modified: 2024-01-05 13:40:36" itemprop="dateModified" datetime="2024-01-05T13:40:36+08:00">2024-01-05</time>
     </span>
 
   
 </div>
 
+            <div class="post-description">這篇文章將介紹如何在 Hexo blog中安裝 Giscus 評論系統。Giscus 是一個開源的、基於 GitHub 的評論系統，具有強大的功能和靈活的配置。</div>
         </div>
       </header>
 
@@ -235,6 +236,9 @@
 <ul>
 <li>hexo: 7.0.0</li>
 <li>hexo-cli: 4.3.1</li>
+<li><a href="mailto:&#x68;&#101;&#x78;&#x6f;&#x2d;&#x6e;&#101;&#120;&#x74;&#45;&#x67;&#105;&#x73;&#x63;&#x75;&#115;&#x40;&#x31;&#46;&#x32;&#x2e;&#x30;">&#x68;&#101;&#x78;&#x6f;&#x2d;&#x6e;&#101;&#120;&#x74;&#45;&#x67;&#105;&#x73;&#x63;&#x75;&#115;&#x40;&#x31;&#46;&#x32;&#x2e;&#x30;</a>  </li>
+<li><a href="mailto:&#x68;&#x65;&#120;&#x6f;&#45;&#x74;&#104;&#x65;&#109;&#101;&#x2d;&#x6e;&#101;&#120;&#116;&#x40;&#x38;&#46;&#49;&#57;&#x2e;&#49;">&#x68;&#x65;&#120;&#x6f;&#45;&#x74;&#104;&#x65;&#109;&#101;&#x2d;&#x6e;&#101;&#120;&#116;&#x40;&#x38;&#46;&#49;&#57;&#x2e;&#49;</a>       </li>
+<li><a href="mailto:&#x68;&#101;&#x78;&#x6f;&#x40;&#x37;&#46;&#x30;&#46;&#48;">&#x68;&#101;&#x78;&#x6f;&#x40;&#x37;&#46;&#x30;&#46;&#48;</a></li>
 </ul>
 <h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><ol>
 <li>將repo設為公開</li>
