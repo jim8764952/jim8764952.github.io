@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="介紹如何解壓縮及讀取 XML.GZ 檔。XML.GZ 檔是一種將 XML 檔案壓縮後的檔案格式。解壓縮 XML.GZ 檔後，就可以取得原始的 XML 檔案。">
 <meta property="og:type" content="article">
@@ -233,27 +233,27 @@
     
     <div class="post-body" itemprop="articleBody"><p>蒐集完網路上的資料後，自己簡單的把流程整理下來</p>
 <p>我這邊以下載<a target="_blank" rel="noopener" href="https://tisvcloud.freeway.gov.tw/">高速公路資料庫</a>的車輛偵測器作為範例。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_vd_xml</span><span class="token punctuation">(</span>hh<span class="token punctuation">,</span>mm<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    filename <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"VDLive_</span><span class="token interpolation"><span class="token punctuation">&#123;</span>hh<span class="token punctuation">:</span><span class="token format-spec">02d</span><span class="token punctuation">&#125;</span></span><span class="token interpolation"><span class="token punctuation">&#123;</span>mm<span class="token punctuation">:</span><span class="token format-spec">02d</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span>
-    url <span class="token operator">=</span> <span class="token string">"https://tisvcloud.freeway.gov.tw/history/motc20/VD/20231121/"</span>
+<pre><code class="py">def get_vd_xml(hh,mm):
+    filename = f&quot;VDLive_&#123;hh:02d&#125;&#123;mm:02d&#125;&quot;
+    url = &quot;https://tisvcloud.freeway.gov.tw/history/motc20/VD/20231121/&quot;
 
-    <span class="token comment">#Download f.xml.gz</span>
-    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"tmp/"</span><span class="token operator">+</span>filename<span class="token operator">+</span><span class="token string">".xml.gz"</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-        res <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>url<span class="token punctuation">&#125;</span></span><span class="token interpolation"><span class="token punctuation">&#123;</span>filename<span class="token punctuation">&#125;</span></span><span class="token string">.xml.gz"</span></span><span class="token punctuation">)</span>
-        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>res<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
+    #Download f.xml.gz
+    with open(&quot;tmp/&quot;+filename+&quot;.xml.gz&quot;, &#39;wb&#39;) as f:
+        res = requests.get(f&quot;&#123;url&#125;&#123;filename&#125;.xml.gz&quot;)
+        f.write(res.content)
 
-    <span class="token comment">#Read f.xml.gz and save to xml</span>
-    <span class="token keyword">with</span> gzip<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"tmp/"</span> <span class="token operator">+</span> filename <span class="token operator">+</span> <span class="token string">".xml.gz"</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-        file_content <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"tmp/"</span> <span class="token operator">+</span> filename <span class="token operator">+</span> <span class="token string">".xml"</span><span class="token punctuation">,</span><span class="token string">"wb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> x<span class="token punctuation">:</span>
-            x<span class="token punctuation">.</span>write<span class="token punctuation">(</span>file_content<span class="token punctuation">)</span>
+    #Read f.xml.gz and save to xml
+    with gzip.open(&quot;tmp/&quot; + filename + &quot;.xml.gz&quot;, &#39;rb&#39;) as f:
+        file_content = f.read()
+        with open(&quot;tmp/&quot; + filename + &quot;.xml&quot;,&quot;wb&quot;) as x:
+            x.write(file_content)
 
-    <span class="token comment">#Read f.xml and save to csv</span>
-    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"tmp/"</span> <span class="token operator">+</span> filename <span class="token operator">+</span> <span class="token string">".xml"</span><span class="token punctuation">,</span><span class="token string">"rb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-        file_content <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span>
-        <span class="token comment"># print(file_content)</span>
-        <span class="token keyword">return</span> file_content
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    #Read f.xml and save to csv
+    with open(&quot;tmp/&quot; + filename + &quot;.xml&quot;,&quot;rb&quot;) as f:
+        file_content = f.read().decode(&quot;utf-8&quot;)
+        # print(file_content)
+        return file_content
+</code></pre>
 <p>這邊呢我把它包裝成函式要幾點幾分的資料在傳入即可，回傳的就是xml的資料再看要使用甚麼Praser。</p>
 <p>到目前為止我覺得這個作法會多出解壓縮後的檔案量一多就很佔空間，後續會在把程式碼簡化。也有想過一次全部下載完再一次全部讀取。</p>
 
