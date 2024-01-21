@@ -20,31 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="article">
-<meta property="og:title" content="歷屆CPE程式檢定難易度大解析：逐年分析，掌握考試趨勢">
-<meta property="og:url" content="http://example.com/uncategorized/20231222/1176762323/index.html">
+    <meta name="description" content="前言這篇 是我覺得講解的很好的裡面還有提到好用的底線用法，以下我用自己的方式去理解底線的運作規則。 摘要底線的變數通常就這四種。  __ 變數__ : 已實作出的函數，官方建議不要自己發明，但還是能覆寫這方法。 __變數 : 防止父子類別相互覆蓋變數。 變數_ : 與內建函數名稱同名時能做區分。 _變數 : 建議不要取用內部的變數。  觀察 : 其實Python沒那麼嚴格，不會強制你不能做，只是要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python底線的秘密：真的是讓人眼花撩亂">
+<meta property="og:url" content="http://example.com/uncategorized/20231222/1179937082/index.html">
 <meta property="og:site_name" content="Jim Wang 的學習筆記">
+<meta property="og:description" content="前言這篇 是我覺得講解的很好的裡面還有提到好用的底線用法，以下我用自己的方式去理解底線的運作規則。 摘要底線的變數通常就這四種。  __ 變數__ : 已實作出的函數，官方建議不要自己發明，但還是能覆寫這方法。 __變數 : 防止父子類別相互覆蓋變數。 變數_ : 與內建函數名稱同名時能做區分。 _變數 : 建議不要取用內部的變數。  觀察 : 其實Python沒那麼嚴格，不會強制你不能做，只是要">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/my-blog-14004.appspot.com/o/CPE%E5%90%84%E5%A0%B4%E6%AC%A1%E6%98%9F%E7%AD%89%E9%A1%8C%E6%95%B8%E5%A0%86%E7%96%8A%E5%9C%96.png?alt=media&token=44586ee5-17c6-44e0-8e8e-fb018e6cb366">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/my-blog-14004.appspot.com/o/CPE%E5%90%84%E5%A0%B4%E6%AC%A1%E6%98%9F%E7%AD%89%E9%A1%8C%E6%95%B8%E5%A0%86%E7%96%8A%E5%9C%96.png?alt=media&token=44586ee5-17c6-44e0-8e8e-fb018e6cb366">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/my-blog-14004.appspot.com/o/%E5%B9%B3%E5%9D%87%E7%AD%94%E5%B0%8D%E9%A1%8C%E6%95%B8.png?alt=media&token=51d23f91-71e2-4a0e-996c-aaf8440622d9">
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/my-blog-14004.appspot.com/o/%E8%BF%91%E4%BA%94%E6%AC%A1%E9%A1%8C%E5%BA%8F%E8%88%87%E6%98%9F%E7%AD%89%E9%97%9C%E4%BF%82.png?alt=media&token=655abaee-ddb5-485a-b354-11c606bf772e">
-<meta property="article:published_time" content="2023-12-22T05:35:00.000Z">
-<meta property="article:modified_time" content="2024-01-03T12:16:22.998Z">
+<meta property="article:published_time" content="2023-12-22T05:35:01.000Z">
+<meta property="article:modified_time" content="2024-01-21T05:38:51.551Z">
 <meta property="article:author" content="Jim Wang">
-<meta property="article:tag" content="CPE">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/my-blog-14004.appspot.com/o/CPE%E5%90%84%E5%A0%B4%E6%AC%A1%E6%98%9F%E7%AD%89%E9%A1%8C%E6%95%B8%E5%A0%86%E7%96%8A%E5%9C%96.png?alt=media&token=44586ee5-17c6-44e0-8e8e-fb018e6cb366">
 
 
-<link rel="canonical" href="http://example.com/uncategorized/20231222/1176762323/">
+<link rel="canonical" href="http://example.com/uncategorized/20231222/1179937082/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/uncategorized/20231222/1176762323/","path":"uncategorized/20231222/1176762323/","title":"歷屆CPE程式檢定難易度大解析：逐年分析，掌握考試趨勢"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/uncategorized/20231222/1179937082/","path":"uncategorized/20231222/1179937082/","title":"Python底線的秘密：真的是讓人眼花撩亂"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>歷屆CPE程式檢定難易度大解析：逐年分析，掌握考試趨勢 | Jim Wang 的學習筆記</title>
+<title>Python底線的秘密：真的是讓人眼花撩亂 | Jim Wang 的學習筆記</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVMGMR02ZL"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-BVMGMR02ZL","only_pageview":false,"measure_protocol_api_secret":null}</script>
@@ -129,7 +125,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%98%9F%E7%AD%89%E8%AA%AA%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">星等說明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%B7%E5%B1%86%E5%90%84%E6%98%9F%E7%AD%89%E9%A1%8C%E6%95%B8"><span class="nav-number">2.</span> <span class="nav-text">歷屆各星等題數</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%B7%E5%B1%86%E5%B9%B3%E5%9D%87%E7%AD%94%E5%B0%8D%E9%A1%8C%E6%95%B8"><span class="nav-number">3.</span> <span class="nav-text">歷屆平均答對題數</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%8C%E5%BA%8F%E8%88%87%E6%98%9F%E7%AD%89%E9%97%9C%E4%BF%82"><span class="nav-number">4.</span> <span class="nav-text">題序與星等關係</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number"></span> <span class="nav-text">參考資料</span></a></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">2.</span> <span class="nav-text">摘要</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%8A%E6%95%B8"><span class="nav-number">2.1.</span> <span class="nav-text">__ 變數__</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%8A%E6%95%B8-1"><span class="nav-number">2.2.</span> <span class="nav-text">__變數</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%8A%E6%95%B8-2"><span class="nav-number">2.3.</span> <span class="nav-text">變數_</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%8A%E6%95%B8-3"><span class="nav-number">2.4.</span> <span class="nav-text">_變數</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%96%AE%E5%BA%95%E7%B7%9A"><span class="nav-number">2.5.</span> <span class="nav-text">單底線 _</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -180,7 +176,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/20231222/1176762323/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/uncategorized/20231222/1179937082/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/sticker.png">
@@ -193,12 +189,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="歷屆CPE程式檢定難易度大解析：逐年分析，掌握考試趨勢 | Jim Wang 的學習筆記">
+      <meta itemprop="name" content="Python底線的秘密：真的是讓人眼花撩亂 | Jim Wang 的學習筆記">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          歷屆CPE程式檢定難易度大解析：逐年分析，掌握考試趨勢
+          Python底線的秘密：真的是讓人眼花撩亂
         </h1>
 
         <div class="post-meta-container">
@@ -209,14 +205,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2023-12-22 13:35:00" itemprop="dateCreated datePublished" datetime="2023-12-22T13:35:00+08:00">2023-12-22</time>
+      <time title="Created: 2023-12-22 13:35:01" itemprop="dateCreated datePublished" datetime="2023-12-22T13:35:01+08:00">2023-12-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-01-03 20:16:22" itemprop="dateModified" datetime="2024-01-03T20:16:22+08:00">2024-01-03</time>
+      <time title="Modified: 2024-01-21 13:38:51" itemprop="dateModified" datetime="2024-01-21T13:38:51+08:00">2024-01-21</time>
     </span>
 
   
@@ -235,24 +231,28 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><img src="https://firebasestorage.googleapis.com/v0/b/my-blog-14004.appspot.com/o/CPE%E5%90%84%E5%A0%B4%E6%AC%A1%E6%98%9F%E7%AD%89%E9%A1%8C%E6%95%B8%E5%A0%86%E7%96%8A%E5%9C%96.png?alt=media&token=44586ee5-17c6-44e0-8e8e-fb018e6cb366" width = "300" height = "200" alt="縮圖"/>
-<span id="more"></span>
-## 前言
+    <div class="post-body" itemprop="articleBody"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong><a target="_blank" rel="noopener" href="https://haosquare.com/python-underscore/">這篇</a></strong> 是我覺得講解的很好的裡面還有提到好用的底線用法，以下我用自己的方式去理解底線的運作規則。</p>
+<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>底線的變數通常就這四種。</p>
+<ol>
+<li>__ 變數__ : 已實作出的函數，官方建議不要自己發明，但還是能覆寫這方法。</li>
+<li>__變數 : 防止父子類別相互覆蓋變數。</li>
+<li>變數_ : 與內建函數名稱同名時能做區分。</li>
+<li>_變數 : 建議不要取用內部的變數。</li>
+</ol>
+<p>觀察 : 其實Python沒那麼嚴格，不會強制你不能做，只是要知道你做了會有甚麼後果。</p>
+<h2 id="變數"><a href="#變數" class="headerlink" title="__ 變數__"></a>__ 變數__</h2><p>直接舉例__eq__、__ne__等 這些是已提供的方法，當然你還是可以去覆寫。</p>
+<h2 id="變數-1"><a href="#變數-1" class="headerlink" title="__變數"></a>__變數</h2><blockquote>
+<p>透過前雙底線的名字修飾機制，父類別跟子類別的變數即使命名相同，都透過「被 Python 直譯器擅自改名字」的方式通通保留下來了，不會互相覆蓋！**<a target="_blank" rel="noopener" href="https://haosquare.com/python-underscore/">文章</a>**</p>
+</blockquote>
+<h2 id="變數-2"><a href="#變數-2" class="headerlink" title="變數_"></a>變數_</h2><p>這個我就比較好了解，在寫題目時有一題問地圖上有幾座島嶼，那我想用 map 作命名，但內建函數已存在map()函數，這時就能在我的變數後方加上單個底線作使用 map_ 就保留了內建函數的功能。</p>
+<h2 id="變數-3"><a href="#變數-3" class="headerlink" title="_變數"></a>_變數</h2><p>在使用from mypackage import * 時 _變數 不會被匯入，但還是想用還是能呼叫。</p>
+<h2 id="單底線"><a href="#單底線" class="headerlink" title="單底線 _"></a>單底線 _</h2><p>這是我自己很常會用到的 _ 像是在宣告空陣列時，我不需要使用到 i 就能以 _ 代替。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp = [<span class="literal">False</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br></pre></td></tr></table></figure>
+<p>另外在文章中看到的，在數值中間放置不影響輸出的數值。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="number">999_999</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">999999</span></span><br></pre></td></tr></table></figure>
 
-<p>最近慢慢學習如何撰寫筆記，今天就拿CPE(大學程式能力檢定)資料來簡單統計和整理。資料蒐集範圍為2013&#x2F;10&#x2F;1考試評判改版後至今2023&#x2F;10&#x2F;17資料。</p>
-<h4 id="星等說明"><a href="#星等說明" class="headerlink" title="星等說明"></a>星等說明</h4><p>一顆星：學習完計算機概論之後即可解答</p>
-<p>兩顆星：學習完資料結構之後才能解答或是苦工題</p>
-<p>三顆星：要有好的演算法或數學方法才能解答</p>
-<p>四顆星：要有特殊的演算法或是綜合多種演算法才能解答</p>
-<p>五顆星：超越四顆星的極特殊題目</p>
-<h4 id="歷屆各星等題數"><a href="#歷屆各星等題數" class="headerlink" title="歷屆各星等題數"></a>歷屆各星等題數</h4><p><img src="https://firebasestorage.googleapis.com/v0/b/my-blog-14004.appspot.com/o/CPE%E5%90%84%E5%A0%B4%E6%AC%A1%E6%98%9F%E7%AD%89%E9%A1%8C%E6%95%B8%E5%A0%86%E7%96%8A%E5%9C%96.png?alt=media&token=44586ee5-17c6-44e0-8e8e-fb018e6cb366" alt="CPE各場次星等題數堆疊圖"><br>圖片來源:自製</p>
-<p>從圖表中可以看到，總題數為7題，一星與二星題數加總大致落在5題，三星與四星題目各佔一題，在星等題數分布每個場次大致穩定。</p>
-<h4 id="歷屆平均答對題數"><a href="#歷屆平均答對題數" class="headerlink" title="歷屆平均答對題數"></a>歷屆平均答對題數</h4><p><img src="https://firebasestorage.googleapis.com/v0/b/my-blog-14004.appspot.com/o/%E5%B9%B3%E5%9D%87%E7%AD%94%E5%B0%8D%E9%A1%8C%E6%95%B8.png?alt=media&token=51d23f91-71e2-4a0e-996c-aaf8440622d9" alt="平均答對題數"><br>圖片來源:自製</p>
-<p>從圖表中可以看到，平均答對率最高點在2023&#x2F;3&#x2F;21 1.66題，最低點在2014&#x2F;12&#x2F;23 0.56題，而平均答對題數有緩緩上升趨勢。</p>
-<h4 id="題序與星等關係"><a href="#題序與星等關係" class="headerlink" title="題序與星等關係"></a>題序與星等關係</h4><p><img src="https://firebasestorage.googleapis.com/v0/b/my-blog-14004.appspot.com/o/%E8%BF%91%E4%BA%94%E6%AC%A1%E9%A1%8C%E5%BA%8F%E8%88%87%E6%98%9F%E7%AD%89%E9%97%9C%E4%BF%82.png?alt=media&token=655abaee-ddb5-485a-b354-11c606bf772e" alt="近五次題序與星等關係"></p>
-<p>此表主要講述CPE考試在排序題目時會將較為簡單的試題放在前面，這也是在官網內所提到的。</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p>星等參考 : <a target="_blank" rel="noopener" href="https://par.cse.nsysu.edu.tw/~advprog/star.php">https://par.cse.nsysu.edu.tw/~advprog/star.php</a></p>
-<p>歷屆考試 : <a target="_blank" rel="noopener" href="https://cpe.cse.nsysu.edu.tw/history.php">https://cpe.cse.nsysu.edu.tw/history.php</a></p>
+
+<h1 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h1><p><a target="_blank" rel="noopener" href="https://peps.python.org/pep-0008/#tabs-or-spaces">https://peps.python.org/pep-0008/#tabs-or-spaces</a><br><a target="_blank" rel="noopener" href="https://haosquare.com/python-underscore/">https://haosquare.com/python-underscore/</a></p>
 
     </div>
 
@@ -261,18 +261,18 @@
     
 
     <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/CPE/" rel="tag"># CPE</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/uncategorized/20231222/1176762323/" rel="prev" title="歷屆CPE程式檢定難易度大解析：逐年分析，掌握考試趨勢">
+                  <i class="fa fa-angle-left"></i> 歷屆CPE程式檢定難易度大解析：逐年分析，掌握考試趨勢
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/uncategorized/20231222/1179937082/" rel="next" title="Python底線的秘密：真的是讓人眼花撩亂">
-                  Python底線的秘密：真的是讓人眼花撩亂 <i class="fa fa-angle-right"></i>
+                <a href="/uncategorized/20240104/2256883210/" rel="next" title="解壓縮及讀取 xml.gz 檔筆記">
+                  解壓縮及讀取 xml.gz 檔筆記 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
